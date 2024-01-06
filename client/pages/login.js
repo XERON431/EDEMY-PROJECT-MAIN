@@ -6,6 +6,7 @@ import Link from 'next/link';
 import { Context } from '../context'; // Import your UserContext
 import { useRouter } from 'next/router';
 
+
 const Login = () => {
   const { state, dispatch } = useContext(Context); // Accessing setUser from the UserContext
 
