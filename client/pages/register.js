@@ -5,7 +5,6 @@ import { FaSpinner } from 'react-icons/fa';
 import Link from 'next/link';
 import { Context } from '../context';
 import { useRouter } from 'next/router';
-//hello
 const Register = () => {
   const [name, setName] = useState('Siddhant');
   const [email, setEmail] = useState('siddhantgoyal.iitg@gmail.com');
