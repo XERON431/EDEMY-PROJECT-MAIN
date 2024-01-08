@@ -31,12 +31,16 @@ const userSchema =new Schema(
             default: ["Instructor"],
             enum: ["Subscriber","Instructor","Admin"],
         },
-        // payment data 
-
-
-
+        // payment data
+        // stripe_account_id: "",
+        // stripe_seller: {},
+        // stripeSession: {},
+        passwordResetCode: {
+            type: String,
+            default: "",
+        },
     },
-    {timestamps:true}
+    {timestamps: true }
 );
 
 const User = mongoose.model("User", userSchema);

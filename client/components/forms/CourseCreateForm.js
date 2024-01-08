@@ -6,6 +6,7 @@ const CourseCreateForm = ({
   handleChange,
   values,
   setValues,
+  preview,
 }) => {
   const [buttonValue, setButtonValue] = useState("Save & Continue");
 
@@ -14,8 +15,8 @@ const CourseCreateForm = ({
   };
 
   const handlePaidChange = (e) => {
-    setValues({ ...values, paid: e.target.value === "paid", cost: 0 });
-    setButtonValue(e.target.value === "paid" ? "Save & Continue" : "Submit");
+    setValues({ ...values, paid: e.target.value == "paid", cost: 0 });
+    setButtonValue(e.target.value == "paid" ? "Save & Continue" : "Submit");
   };
 
   const renderCostInput = () => {
@@ -107,6 +108,11 @@ const CourseCreateForm = ({
               />
             </label>
           </div>
+        </div>
+        <div className="col">
+          {preview && (
+            <img src={preview} alt="Preview" style={{ width: '100px', height: 'auto' }} />
+          )}
         </div>
       </div>
       <div className="row">

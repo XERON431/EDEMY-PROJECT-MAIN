@@ -12,21 +12,23 @@ const Coursecreate = () => {
     paid: true,
     category: "",
     loading: false,
-    imagePreview: '',
   });
+
+  const [preview, setPreview] = useState('');
 
   const handleChange = e => {
     setValues({ ...values, [e.target.name]: e.target.value });
   };
 
-  const handleImage = () => {
-
-  };
-  const handlePaidChange = value => {
-    setValues({ ...values, paid: value === "paid" });
+  const handleImage = (e) => {
+    setPreview(window.URL.createObjectURL(e.target.files[0]));
   };
 
-  const handleSubmit = e => {
+  // const handlePaidChange = value => {
+  //   setValues({ ...values, paid: value === "paid" });
+  // };
+
+  const handleSubmit = (e) => {
     e.preventDefault();
     console.log(values);
   };
@@ -36,14 +38,16 @@ const Coursecreate = () => {
       <h1 className="jumbotron text-center square">Create Course</h1>
       <div className="pt-3 pb-3">
         <CourseCreateForm
-        handleSubmit={handleSubmit}
-        handleImage={handleImage}
-        handleChange={handleChange}
-        values={values}
-        setValues={setValues}
+          handleSubmit={handleSubmit}
+          handleImage={handleImage}
+          handleChange={handleChange}
+          values={values}
+          setValues={setValues}
+          preview={preview}
         />
-        </div>
-       <pre>{JSON.stringify(values, null, 4)}</pre>
+      </div>
+      <pre>{JSON.stringify(values, null, 4)}</pre>
+      {preview && <img src={preview} alt="Preview" style={{ width: '200px', height: 'auto' }} />}
     </div>
   );
 };
